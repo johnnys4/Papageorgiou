@@ -1,0 +1,87 @@
+﻿@model Papageorgiou.Models.Products
+
+@{
+    ViewData["Title"] = "Λεπτομέρειες";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="centerp">Λεπτομέρειες προϊόντος</h3>
+<div class="centerp">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Desc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Desc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Count)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Count)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Enabled)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Enabled)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.x)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.x)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.y)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.y)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.z)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.z)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgLink)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImgLink)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Featured)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Featured)
+        </dd>
+    </dl>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="mybutton">Επεξεργασία</a>
+    <a href="/Products/ProductPage/@Html.DisplayFor(model => model.Id)" class="mybutton">Πίσω</a>
+</div>

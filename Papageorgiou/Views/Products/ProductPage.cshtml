@@ -1,0 +1,79 @@
+﻿@model Papageorgiou.Models.Products
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Προϊόντα";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="shop">
+    <div class="shopmenu">
+        <nav class="shopnav">
+            <ul class="shopnav-bar">
+                <li class="shopnav-parent">Έπιπλα κουζίνας</li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=kouzinesmdf">Κουζίνες MDF</a></li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=kouzinesmelaminis">Κουζίνες Μελαμίνης</a></li>
+                <li class="shopnav-parent">Ντουλάπες</li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=ntoulapesmdf">Ντουλάπες MDF</a></li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=ntoulapesmelaminis">Ντουλάπες Μελαμίνης</a></li>
+                <li class="shopnav-parent">Πόρτες εσωτερικές</li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=portesmdf">Πόρτες MDF</a></li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=porteslaminate">Πόρτες Laminate</a></li>
+                <li class="shopnav-parent">Επιπλώσεις Ξενοδοχείων</li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=ksenodoxeia">Προβολή</a></li>
+                <li class="shopnav-parent">Ειδικές κατασκευές</li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=eidikeskataskeues">Προβολή</a></li>
+                <li class="shopnav-parent">Παιδικό δωμάτιο</li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=paidika">Προβολή</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="shopbody">
+        <div class="productpage">
+            <div class="productleft">
+                <div class="productimg">
+                    <div class="img-container">
+                        <img src="~/images/Products/@Html.DisplayFor(model => model.ImgLink)" width="100%" height="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="productdetails">
+                <div class="productname">
+                    @Html.DisplayFor(model => model.Name)
+                </div>
+                <div class="productdescription">
+                    @Html.DisplayFor(model => model.Desc)
+                </div>
+                <div class="productprice">
+                    Τιμή Λιανικής
+                    <p>
+                        @Html.DisplayFor(model => model.Price) €
+                    </p>
+                </div>
+                <div class="productcolor">
+                    Διαθέσιμα Χρώματα
+                    <p>
+                        @Html.DisplayFor(model => model.Color)
+                    </p>
+                </div>
+                <div class="productdimensions">
+                    Διαστάσεις cm (μήκος|πλάτος|ύψος)
+                    <p>@Html.DisplayFor(model => model.x) x  @Html.DisplayFor(model => model.z) x @Html.DisplayFor(model => model.y)</p>
+                </div>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    if (User.Identity.Name.ToLower() == "admin")
+                    {
+                        <p>------------| Εργαλεία διαχείρησης |------------</p>
+                        <a href="/Products/Details/@Html.DisplayFor(model => model.Id)" class="mybutton">Λεπτομέρειες</a>
+                        <a href="/Products/Edit/@Html.DisplayFor(model => model.Id)" class="mybutton">Επεξεργασία</a>
+                        <a href="/Products/Delete/@Html.DisplayFor(model => model.Id)" class="mybutton border-danger">Διαγραφή</a> 
+                    }
+                }
+            </div>
+
+        </div>
+    </div>
+</div>

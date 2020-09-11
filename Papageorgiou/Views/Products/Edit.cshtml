@@ -1,0 +1,96 @@
+﻿@model Papageorgiou.Models.Products
+
+@{
+    ViewData["Title"] = "Επεξεργασία";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3 class="centerp">Επεξεργασία προϊόντος</h3>
+<hr />
+<div class="row centerp">
+    <div class="col-md-4 centerch">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Όνομα</label>
+                <input asp-for="Name" class="form-control centerp" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label">Κατηγορία</label>
+                <input asp-for="Category" class="form-control centerp" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Desc" class="control-label">Περιγραφή</label>
+                <input asp-for="Desc" class="form-control centerp" />
+                <span asp-validation-for="Desc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Τιμή</label>
+                <input asp-for="Price" class="form-control centerp" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Count" class="control-label">Διαθέσιμη ποσότητα</label>
+                <input asp-for="Count" class="form-control centerp" />
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        Να εμφανίζεται στη λίστα; <input asp-for="Enabled" />
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Color" class="control-label">Χρώμα</label>
+                <input asp-for="Color" class="form-control centerp" />
+                <span asp-validation-for="Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="x" class="control-label">Μήκος (εκατοστά)</label>
+                <input asp-for="x" class="form-control centerp" />
+                <span asp-validation-for="x" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="y" class="control-label">Πλάτος (εκατοστά)</label>
+                <input asp-for="y" class="form-control centerp" />
+                <span asp-validation-for="y" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="z" class="control-label">Ύψος (εκατοστά)</label>
+                <input asp-for="z" class="form-control centerp" />
+                <span asp-validation-for="z" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImgLink" class="control-label">Link εικόνας</label>
+                <input asp-for="ImgLink" class="form-control centerp" />
+                <span asp-validation-for="ImgLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        Να είναι hot προϊόν; <input asp-for="Featured" />
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Αποθήκευση" class="mybutton" />
+                <a href="/Products/ProductPage/@Html.DisplayFor(model => model.Id)" class="mybutton">Πίσω</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $.validator.methods.number = function (value, element) {
+            return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+        }
+    </script>
+}

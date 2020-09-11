@@ -1,0 +1,91 @@
+﻿@model Papageorgiou.Models.Products
+
+@{
+    ViewData["Title"] = "Διαγραφή";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="centerp">Έισαι σίγουρος πως θέλεις να διαγράψεις αυτό το προϊόν;</h3>
+<div class="centerp">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt >
+            Όνομα
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            Κατηγορία
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt>
+            Περιγραφή
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Desc)
+        </dd>
+        <dt>
+            Τιμή
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            Διαθέσιμη ποσότητα
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Count)
+        </dd>
+        <dt>
+            Να εμφανίζεται στη λίστα;
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Enabled)
+        </dd>
+        <dt>
+            Χρώμα
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+        <dt>
+            Μήκος (εκατοστά)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.x)
+        </dd>
+        <dt>
+            Πλάτος (εκατοστά)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.y)
+        </dd>
+        <dt>
+           Ύψος (εκατοστά)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.z)
+        </dd>
+        <dt>
+            Link εικόνας
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImgLink)
+        </dd>
+        <dt>
+            Να είναι hot προϊόν;
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Featured)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="mybutton border-danger" />
+        <a href="/Products/ProductPage/@Html.DisplayFor(model => model.Id)" class="mybutton">Πίσω</a>
+    </form>
+</div>

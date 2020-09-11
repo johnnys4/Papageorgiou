@@ -1,0 +1,82 @@
+﻿@model PagedList.IPagedList<Papageorgiou.Models.Products>
+
+@{
+    ViewData["Title"] = "Προϊόντα";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="shop">
+    <div class="shopmenu">
+        <nav class="shopnav">
+            <ul class="shopnav-bar">
+                <li class="shopnav-parent">Έπιπλα κουζίνας</li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=kouzinesmdf">Κουζίνες MDF</a></li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=kouzinesmelaminis">Κουζίνες Μελαμίνης</a></li>
+                <li class="shopnav-parent">Ντουλάπες</li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=ntoulapesmdf">Ντουλάπες MDF</a></li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=ntoulapesmelaminis">Ντουλάπες Μελαμίνης</a></li>
+                <li class="shopnav-parent">Πόρτες εσωτερικές</li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=portesmdf">Πόρτες MDF</a></li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=porteslaminate">Πόρτες Laminate</a></li>
+                <li class="shopnav-parent">Επιπλώσεις Ξενοδοχείων</li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=ksenodoxeia">Προβολή</a></li>
+                <li class="shopnav-parent">Ειδικές κατασκευές</li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=eidikeskataskeues">Προβολή</a></li>
+                <li class="shopnav-parent">Παιδικό δωμάτιο</li>
+                <li class="shopnav-child"><a href="~/Products/Category?CategoryName=paidika">Προβολή</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="shopbody">
+        <div class="shopitems">
+            @foreach (var item in Model)
+            {
+                if (item.Enabled == true)
+                {
+                    <div class="shopitem">
+                        <div class="shopitemfeatured">Hot</div>
+                        <a href="~/Products/ProductPage/@item.Id">
+                            <div class="shopitemimg">
+                                <div class="img-container">
+                                    <img src="~/images/Products/@item.ImgLink" width="100%" height="100%">
+                                </div>
+                            </div>
+                            <div class="shopitemprice"><p>@item.Price €</p></div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+        @if (Model.PageCount > 1)
+        {
+            <div id="paging">
+                @if (Model.HasPreviousPage)
+                {
+                    var temp = Model.PageNumber - 1;
+                    <a href="~/Products?page=@temp">&laquo;</a>
+                }
+
+                @for (int i = 1; i <= Model.PageCount; i++)
+                {
+                    <a href="~/Products?page=@i" class="pagingbtn">@i</a>
+                }
+                @if (Model.HasNextPage)
+                {
+                    var temp = Model.PageNumber + 1;
+                    <a href="~/Products?page=@temp">&raquo;</a>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+        var btnContainer = document.getElementById("paging");
+        if (btnContainer != null) {
+            var btns = btnContainer.getElementsByClassName("pagingbtn");
+            temp = @Model.PageNumber;
+            temp--;
+            btns[temp].style.backgroundColor = "#E0C3BF";
+        }
+</script>
