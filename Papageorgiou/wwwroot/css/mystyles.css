@@ -184,20 +184,10 @@ footer > p{
     margin:3px;
     position:relative;
 }
-.shopitemfeatured{
-    position:absolute;
-    top:0;
-    z-index:1;
-    background-color:red;
-    color:white;
-    padding:0 3px 0 3px;
-    display:none;
-}
-.shopitemimg{
-    width:100%;
-    padding-top:100%;
-    position:absolute;
-    top:0;
+.shopitem:hover{
+    cursor:pointer;
+    opacity:0.5;
+    border-color:red;
 }
 .img-container{
     position:absolute;
@@ -406,6 +396,15 @@ dt {
     .modal-content {
         width: 100%;
     }
+}
+.disclaimer{
+    text-align:center;
+    margin-top:50px;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+    font-style:italic;
+    font-size:0.9rem;
 }
 
 
