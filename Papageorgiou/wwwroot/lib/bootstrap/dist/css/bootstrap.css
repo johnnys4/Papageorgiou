@@ -51,10 +51,12 @@ html {
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
-
+@font-face{
+    src:url('~/css/Cera GR.otf');
+    font-family:'CeraGr';
+}
 body {
   margin: 0;
-  font-family:'CeraGR-Regular ☞';
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
