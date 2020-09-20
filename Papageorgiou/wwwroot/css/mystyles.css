@@ -7,6 +7,18 @@
 #myCarousel{
     width:100%;
 }
+#background {
+    width: 100%;
+    padding-top: 56.25%;
+    background-image: url(../images/background1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    -moz-animation: fadein 3s;
+    -o-animation: fadein 3s;
+    -webkit-animation: fadein 3s;
+    animation: fadein 3s;
+}
 #topBtn {
     display: none;
     position: fixed;
@@ -405,6 +417,14 @@ dt {
     transform:translateX(-50%);
     font-style:italic;
     font-size:0.9rem;
+}
+.col-md-2{
+    margin:auto;
+}
+.row{
+    padding-top:130px;
+    padding-bottom:80px;
+    text-align:center;
 }
 
 
