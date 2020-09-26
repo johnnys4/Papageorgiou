@@ -11,7 +11,6 @@
     width: 100%;
     padding-top: 56.25%;
     background-image: url(../images/background1.jpg);
-    background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     -moz-animation: fadein 3s;
@@ -196,11 +195,6 @@ footer > p{
     margin:3px;
     position:relative;
 }
-.shopitem:hover{
-    cursor:pointer;
-    opacity:0.5;
-    border-color:red;
-}
 .img-container{
     position:absolute;
     top:0;
@@ -208,20 +202,12 @@ footer > p{
     height:100%;
 
 }
-.shopitemprice {
+.shopitemtext {
     position: absolute;
     top: 90%;
     left: 50%;
     transform: translate(-50%,-90%);
-    color: black;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    display:none;
-}
-.shopitemprice p{
-    margin:0 3px 0 3px;
-    font-family:Calibri;
+    width:100%;
 }
 #paging{
     margin-top:20px;
@@ -418,19 +404,72 @@ dt {
     font-style:italic;
     font-size:0.9rem;
 }
-.col-md-2{
-    margin:auto;
+.col-md-3,.col-md-4 {
+    margin: auto;
+
 }
-.row{
-    padding-top:130px;
-    padding-bottom:80px;
-    text-align:center;
+.row {
+    padding-top: 130px;
+    padding-bottom: 80px;
+    text-align: center;
+    margin: auto;
+}
+.width60{
+    width:60%;
+}
+.width70{
+    width:70%;
+}
+.test{
+    width:100%;
+    padding-top:100%;
+}
+.bubble{
+    width:100%;
+    padding-top:100%;
+    position:relative;
+}
+.col-md-3 > h4{
+    padding-bottom:5px;
+    padding-top:15px;
+}
+.col-md-3 > p {
+    min-height:150px;
+}
+.col-md-4 > h4 {
+    padding-bottom: 5px;
+    padding-top: 15px;
 }
 
-
-
-
-
+.col-md-4 > p {
+    min-height: 150px;
+}
+.hidden{
+    display:none;
+}
+.adminbutton{
+    margin:5px;
+}
+.shopitem:hover {
+    border-color: red;
+}
+.shopitemimg:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+.adminbutton:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    -moz-animation: hoverbutton .4s;
+    -o-animation: hoverbutton .4s;
+    -webkit-animation: hoverbutton .4s;
+    animation: hoverbutton .4s;
+    -moz-transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    -o-transform: scale(0.75);
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+}
 
 
 
@@ -564,12 +603,22 @@ dt {
     .errortext {
         font-size: 24px;
     }
+    .width70{
+        width:95%;
+    }
+    .width60{
+        width:75%;
+    }
 }
 
 
 
 /*     MOBILES     */
 @media screen and (max-width: 767px) {
+    #background{
+        padding-top:100%;
+        background-image:url("../images/background2.jpg");
+    }
     footer > p{
         font-size:0.9rem;
     }
@@ -726,5 +775,22 @@ dt {
 
     to {
         left: 0%;
+    }
+}
+@keyframes hoverbutton{
+    from {
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    to {
+        -moz-transform: scale(0.75);
+        -ms-transform: scale(0.75);
+        -o-transform: scale(0.75);
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
     }
 }

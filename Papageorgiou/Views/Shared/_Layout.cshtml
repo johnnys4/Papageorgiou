@@ -6,8 +6,8 @@
 <html lang="el">
 <head>
     <meta charset="utf-8" />
-    <meta name="description" content="Συνεργείο κατασκευής και τοποθέτησης επίπλων" />
-    <meta name="keywords" content="Μαραγκός,επιπλοποιός,έπιπλα,έπιπλα,κουνίνα,κουζίνες,ξυλουργείο,Λεπτοκαρυά,Πιερία,Κατερίνη,καρέκλα,τραπέζι,καναπές,ντουλάπα,ράφια,ξύλα,mdf" />
+    <meta name="description" content="Βιοτεχνία κατασκευής και τοποθέτησης επίπλων για οικίες, επαγγελματικούς χώρους και ξενοδοχεία." />
+    <meta name="keywords" content="μαραγκός,επιπλοποιός,έπιπλο,έπιπλα,κουζίνα,κουζίνες,ξυλουργείο,βιοτεχνία,Λεπτοκαρυά,Πιερία,Κατερίνη,καρέκλα,τραπέζι,καναπές,ντουλάπα,ράφια,ξύλα,mdf,μελαμίνη,laminate" />
     <meta name="author" content="Giannis Kalios (johnnys495@hotmail.com)" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Έπιπλα Παπαγεωργίου</title>
@@ -42,11 +42,6 @@
                     {
                         <li class="nav-item"><a asp-area="" asp-controller="Admin" asp-action="Index" class="nav-link">Admin</a></li>
                     }
-                }
-                else
-                {
-                    <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Log in</a></li>
                 }
             </ul>
         </div>
@@ -105,7 +100,7 @@
             toggler = document.getElementById("togglericon");
             style = toggler.currentStyle || window.getComputedStyle(toggler, false),
                 bi = style.backgroundImage.slice(4, -1).replace(/"/g, "");
-            if (bi == "https://localhost:44389/images/togglerrows.png")
+            if (bi == "https://papageorgiou-furniture.gr/images/togglerrows.png")
                 toggler.style.backgroundImage = "url('/images/togglerx.png')";
             else
                 toggler.style.backgroundImage = "url('/images/togglerrows.png')";

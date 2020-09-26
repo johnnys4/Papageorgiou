@@ -1,5 +1,7 @@
 ﻿@model PagedList.IPagedList<Papageorgiou.Models.Products>
-
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @{
     ViewData["Title"] = "Προϊόντα";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -44,8 +46,18 @@
                         <span class="close">&times;</span>
 
                         <img class="modal-content" id="img01">
-
-                        <div id="caption"></div>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            if (User.Identity.Name.ToLower() == "admin")
+                            {
+                                <div class="centerp">
+                                    <p style="color:aliceblue">------------| Εργαλεία διαχείρησης |------------</p>
+                                    <a href="/Products/Details/@item.Id" class="mybutton">Λεπτομέρειες</a>
+                                    <a href="/Products/Edit/@item.Id" class="mybutton">Επεξεργασία</a>
+                                    <a href="/Products/Delete/@item.Id" class="mybutton border-danger">Διαγραφή</a>
+                                </div>
+                            }
+                        }
                     </div>
                     <script>
                         var modal = document.getElementById("myModal");
@@ -56,7 +68,6 @@
                         img.onclick = function () {
                             modal.style.display = "block";
                             modalImg.src = this.src;
-                            captionText.innerHTML = this.alt;
                         }
 
                         var span = document.getElementsByClassName("close")[0];
@@ -74,7 +85,7 @@
                 @if (Model.HasPreviousPage)
                 {
                     var temp = Model.PageNumber - 1;
-                    
+
                     <a href="~/Products/Category?CategoryName=@Model[0].Category&page=@temp">&laquo;</a>
                 }
 

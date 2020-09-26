@@ -6,27 +6,16 @@
 
 <div class="adminpage">
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-3 centerch">
             <ul class="list-group">
                 <li class="list-group-item text-center"><a class="btn" asp-area="Identity" asp-page="/Account/Manage/Index">Διαχείρηση Λογαριασμού</a></li>
                 <li class="list-group-item text-center"><a class="btn" asp-area="" asp-controller="Products" asp-action="Create">Νέο προϊόν</a></li>
-                <li class="list-group-item text-center"><a class="btn" asp-area="" asp-controller="Products" asp-action="Index">Διαγραφή προϊόντος</a></li>
-                <li class="list-group-item text-center"><a class="btn" asp-area="" asp-controller="Products" asp-action="Index">Επεξεργασία προϊόντος</a></li>
-                <li class="list-group-item text-center"><a class="btn" asp-area="" asp-controller="Products" asp-action="Index">Λεπτομέρειες προϊόντος</a></li>
                 <li class="list-group-item text-center">
                     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm">
                         <button type="submit" class="btn">Αποσύνδεση</button>
                     </form>
                 </li>
             </ul>
-        </div>
-        <div class="col-lg-9 row">
-            <div class="col-lg-6 bg-dark">
-                PAOK
-            </div>
-            <div class="col-lg-6 bg-success">
-                AEK
-            </div>
         </div>
     </div>
 

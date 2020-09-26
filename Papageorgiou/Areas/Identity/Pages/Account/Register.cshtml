@@ -1,39 +1,5 @@
-﻿@page
-@model RegisterModel
-@{
+﻿@{
     ViewData["Title"] = "Εγγραφή";
 }
 
-<h3 class="centerp">Εγγραφή νέου χρήστη</h3>
-<hr />
-<div class="row centerp">
-    <div class="col-md-4 centerch">
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <div class="form-group">
-                <label asp-for="Input.UserName"></label>
-                <input asp-for="Input.UserName" class="form-control" />
-                <span asp-validation-for="Input.UserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Password">Κωδικός πρόσβασης</label>
-                <input asp-for="Input.Password" class="form-control" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.ConfirmPassword">Επιβεβαίωση νέου κωδικού</label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" />
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button type="submit" class="mybutton">Εγγραφή</button>
-        </form>
-    </div>
-</div>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+<h3 class="centerp">Οι εγγραφή χρήστη είναι απενεργοποιημένη.</h3>
